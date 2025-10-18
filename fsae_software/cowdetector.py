@@ -137,7 +137,7 @@ for i, index in enumerate(not_cow_indices):
           f"Actual = {actual_class} ({'Cow' if actual_class == 0 else 'Not Cow'})")
 
 # Calculate accuracy
-correct = (torch.argmax(y_preds, dim=1) == y_test).sum().item()
+correct = (torch.argmax(y_preds, dim=1) == y_test).sum().item() # compares predicted values with test values
 total = len(y_test)
 accuracy = 100 * correct / total
 print(f"\nFinal accuracy: {accuracy:.2f}%")
