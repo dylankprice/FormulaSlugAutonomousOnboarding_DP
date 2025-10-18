@@ -4,11 +4,16 @@ from torchvision import transforms
 import os
 from PIL import Image
 import random
+import kagglehub
+
+#This code trains a simple neural network to classify images as cows or not-cows (dogs and cats) using a dataset from Kaggle
+
+#There is a seperate file with results so you dont need to run if you dont want to set it up
+
+path = kagglehub.dataset_download("alessiocorrado99/animals10")
+data_path = os.path.join(path, "raw-img")  # Navigate to the raw-img subfolder
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
-
-
-data_path = r"C:\Users\dylan\.cache\kagglehub\datasets\alessiocorrado99\animals10\versions\2\raw-img" #kaggle path to aniamls
 
 #makes images all 32x32 and turns them from images to tensors
 transform = transforms.Compose([
@@ -139,7 +144,7 @@ accuracy = 100 * correct / total
 print(f"\nFinal accuracy: {accuracy:.2f}%")
 
 #returns index(0 or 1) of cow or not cow likeliness, based off which is higher
-cow_predictions = (torch.argmax(y_preds, dim=1) == 0).sum().item() # true = 1, false = 0, sum adds them up
+cow_predictions = (torch.argmax(y_preds, dim=1) == 0).sum().item() # true = 1, false = 0, sum adds them up indicating number of cows predicted
 not_cow_predictions = (torch.argmax(y_preds, dim=1) == 1).sum().item()
 actual_cows = (y_test == 0).sum().item()
 actual_not_cows = (y_test == 1).sum().item()

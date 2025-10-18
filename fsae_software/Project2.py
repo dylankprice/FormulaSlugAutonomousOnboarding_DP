@@ -1,6 +1,7 @@
 import torch
 from torch import nn
 
+#this code trains a simple neural network to add two numbers together given as input pairs
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
