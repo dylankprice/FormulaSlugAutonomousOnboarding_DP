@@ -11,8 +11,7 @@ import kagglehub
 #There is a seperate file with results, showing what happens when run
 
 path = kagglehub.dataset_download("alessiocorrado99/animals10")
-data_path = os.path.join(path, "raw-img")  # Navigate to the raw-img subfolder
-
+data_path = os.path.join(path, "raw-img")  # joins path and the folder holding all animal catergories
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 #makes images all 32x32 and turns them from images to tensors
@@ -138,7 +137,7 @@ for i, index in enumerate(not_cow_indices):
           f"Actual = {actual_class} ({'Cow' if actual_class == 0 else 'Not Cow'})")
 
 # Calculate accuracy
-correct = (torch.argmax(y_preds, dim=1) == y_test).sum().item()
+correct = (torch.argmax(y_preds, dim=1) == y_test).sum().item() # compares predicted values with test values
 total = len(y_test)
 accuracy = 100 * correct / total
 print(f"\nFinal accuracy: {accuracy:.2f}%")
