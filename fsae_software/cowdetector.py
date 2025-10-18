@@ -11,8 +11,7 @@ import kagglehub
 #There is a seperate file with results, showing what happens when run
 
 path = kagglehub.dataset_download("alessiocorrado99/animals10")
-data_path = os.path.join(path, "raw-img")  # Navigate to the raw-img subfolder
-
+data_path = os.path.join(path, "raw-img")  # joins path and the folder holding all animal catergories
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 #makes images all 32x32 and turns them from images to tensors
