@@ -73,4 +73,4 @@ with torch.inference_mode():
     y_preds = model_2(X_test)
 
 for i in range(5):
-    print(f"The sum of {int(X_test[i])} is approximately {float(y_preds[i]):.2f}(real value is {float(y_test[i]):.2f})")
+    print(f"The sum of {int(X_test[i, 0])} + {int(X_test[i, 1])} is approximately {float(y_preds[i]):.2f}(real value is {float(y_test[i]):.2f}) !!")

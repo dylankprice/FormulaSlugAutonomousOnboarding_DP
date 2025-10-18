@@ -8,7 +8,7 @@ import kagglehub
 
 #This code trains a simple neural network to classify images as cows or not-cows (dogs and cats) using a dataset from Kaggle
 
-#There is a seperate file with results so you dont need to run if you dont want to set it up
+#There is a seperate file with results, showing what happens when run
 
 path = kagglehub.dataset_download("alessiocorrado99/animals10")
 data_path = os.path.join(path, "raw-img")  # Navigate to the raw-img subfolder

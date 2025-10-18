@@ -71,5 +71,5 @@ model_2.eval()#puts model in eval mode
 with torch.inference_mode():
     y_preds = model_2(X_test)
 
-for i in range(20):
+for i in range(10):
     print(f"if you add {int(X_test[i])} and {float(y_preds[i]):.2f} you get approximately 6.7 !!")
